@@ -65,7 +65,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <h2 id="matchFriendName"></h2>
+                        <img id="matchFriendImg" src="" alt="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -160,7 +161,8 @@
                             console.log(data);
                             console.log(response);
                             checkMatch(data);
-                            $(".modal-body").text(`this is your match`);
+                            $("#matchFriendName").text(data.name);
+                            $('#matchFriendImg').attr("src", data.photo);
                             $('#matchModal').modal('show');
                         },
                         error: function (response) {

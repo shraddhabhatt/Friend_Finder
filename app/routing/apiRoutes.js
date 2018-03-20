@@ -43,10 +43,10 @@ module.exports = function(app){
 
 		var newUser = req.body;
         var differences = [];
-        if (friends.length < 1) {
+        if (friendsData.length < 1) {
             console.log("unable to do calculation; not enough users");
         } else {
-            compareFriends(friends, newUser, differences);
+            compareFriends(friendsData, newUser, differences);
             var lowest = differences[0];
             for (var i = 0; i < differences.length; i++) {
                 if (differences[i] < lowest) {
@@ -54,18 +54,18 @@ module.exports = function(app){
                 }
             };
             var bestMatch = differences.indexOf(lowest);
-            res.send(friends[bestMatch]);
+            res.send(friendsData[bestMatch]);
         };
-        friends.push(newUser);
+        friendsData.push(newUser);
 	});
 
 
 	function compareFriends(friends, newUser, differences) {
 	    var curUserIndex = 0;
-	    while (curUserIndex < friends.length) {
+	    while (curUserIndex < friendsData.length) {
 	        var totalDifference = 0;
 	        for (var i = 0; i < newUser.scores.length; i++) {
-	            totalDifference += Math.abs(parseInt(friends[curUserIndex].scores[i]) - parseInt(newUser.scores[i]));
+	            totalDifference += Math.abs(parseInt(friendsData[curUserIndex].scores[i]) - parseInt(newUser.scores[i]));
 	        }
 	        differences.push(totalDifference);
 	        curUserIndex++;
