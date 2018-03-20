@@ -1,0 +1,100 @@
+html{ 
+  background: url("/friends_home.png") no-repeat center fixed; 
+}
+
+body{
+	text-align: center;
+}
+h1{
+  font-family: 'Bungee', cursive;
+  font-size: 85px !important;
+  color: #0887C6;
+  letter-spacing: 4px;
+}
+#subtitle {
+	padding-top: 5px;
+  margin-bottom: 300px;
+}
+h4 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px !important;
+	color: #0f0f0f;
+	text-transform: uppercase
+}
+#header {
+  margin-top: -35px;
+}
+#subhead {
+	margin-bottom: 20px;
+}
+/* buttons */
+.button,
+button
+{
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #777;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: lowercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+.button:focus,
+button:focus{
+  color: #777;
+  border-color: #777;
+  outline: 0; }
+#resultbutton,
+.button.button-primary,
+button.button-primary{
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 38px;
+  padding: 0 30px;
+  color: #777;
+  background-color: #FDC20E;
+  border-color: #FDC20E; }
+#resultbutton:hover,
+.button.button-primary:hover,
+button.button-primary:hover,
+#resultbutton:focus,
+.button.button-primary:focus,
+button.button-primary:focus{
+  color: #FDC20E;
+  background-color: transparent;
+  border-color: #FDC20E; }
+
+
+/* border */
+#top,
+#bottom,
+#left,
+#right {
+	background: #0887C6;
+	position: fixed;
+}
+#left,
+#right {
+	top: 0; bottom: 0;
+	width: 20px;
+}
+#left { left: 0; }
+#right { right: 0; }
+#top,
+#bottom {
+	left: 0; right: 0;
+	height: 20px;
+}
+#top { top: 0; }
+	#bottom { bottom: 0; }

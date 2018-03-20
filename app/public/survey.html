@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Survey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+	<body class="bg-light">
+
+        <div class="container">
+            <div class="pt-5 text-center">
+                <h1>Friend Survey</h1>
+                <p class="lead">Fill out the survey below and get matched with your most compatible friend!</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mb-2">Your Info</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Name (required)</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Link to photo image (required)</label>
+                                <input type="text" name="photo" class="form-control" id="photo" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid URL to photo is required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="mb-4">
+
+                        <h4 class="mb-3">Answer the following (1 strongly disagree, 5 strongly agree):</h4>
+
+                        <div class="d-block my-3">
+                            <fieldset class="form-group">
+                                <!-- PUT SURVEY QUESTIONS HERE -->
+                            </fieldset>
+                        </div>
+                        <button id="resultbutton" class="btn btn-primary btn-lg btn-block" type="submit">See your results!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Your Match:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mastfoot mt-auto text-center">
+            <div class="inner">
+                <p>@CopyRights 2018 : Shraddha Bhatt</p>
+            </div>
+        </footer>
+	    <!-- border divs-->
+			<div id="top">
+			</div>
+			<div id="bottom">
+			</div>
+			<div id="left">
+			</div>
+			<div id="right">
+			</div>
+		</body>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            var survey = [
+                "I see myself as extraverted, enthusiastic.",
+                "I see myself as critical, quarrelsome.",
+                "I see myself as dependable, self-disciplined.",
+                "I see myself as anxious, easily upset.",
+                "I see myself as open to new experiences, complex.",
+                "I see myself as reserved, quiet.",
+                "I see myself as sympathetic, warm.",
+                "I see myself as disorganized, careless.",
+                "I see myself as calm, emotionally stable.",
+                "I see myself as conventional, uncreative."
+            ];
+            survey.forEach(question => {
+                $("fieldset").append(`
+                <div class="row">
+                    <legend class="col-form-label col-sm-12 col-md-6 pt-0">${question}</legend>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="survey-${survey.indexOf(question)}" id="stronglyDisagree" value="1" required>
+                                <label class="form-check-label" for="stronglyDisagree">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="survey-${survey.indexOf(question)}" id="disagree" value="2" required>
+                                <label class="form-check-label" for="disagree">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="survey-${survey.indexOf(question)}" id="neutral" value="3" required>
+                                    <label class="form-check-label" for="neutral">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="survey-${survey.indexOf(question)}" 
+                                id="agree" value="4" required>
+                                    <label class="form-check-label" for="agree">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="survey-${survey.indexOf(question)}" id="stronglyAgree" value="5" required>
+                                    <label class="form-check-label" for="stronglyAgree">5</label>
+                            </div>
+                        </div>
+                </div>`);
+            });
+            $(document).ready(function (checkMatch) {
+                // const currentURL = window.location.origin;
+                // let newUser = {};
+                $("#resultbutton").on("click", function (event) {
+                    event.preventDefault();
+                    let scores = [];
+                    for (let i = 0; i < 10; i++) {
+                        let currentVal = $(`input:radio[name='survey-${i}']:checked`).val();
+                        scores.push(currentVal);
+                        console.log("Val :: "+scores[i]);
+                    }
+                    $.ajax({
+                        url: "/api/friends",
+                        type: "POST",
+                        contentType: "application/json",
+                        dataType: "JSON",
+                        data: JSON.stringify({
+                            name: $(`input[name = 'name']`).val().trim(),
+                            photo: $(`input[name = 'photo']`).val().trim(),
+                            scores
+                        }),
+                        success: function (data, response) {
+                            console.log(data);
+                            console.log(response);
+                            checkMatch(data);
+                            $(".modal-body").text(`this is your match`);
+                            $('#matchModal').modal('show');
+                        },
+                        error: function (response) {
+                            console.log(response);
+                        }
+                    })
+                });
+            })
+        </script>
+</html>
