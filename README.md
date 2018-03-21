@@ -28,7 +28,6 @@ Survey
 ## Built With
 
 * Sublime Text - Text Editor
-* Materialize - Wireframe
 
 ## Authors
 
