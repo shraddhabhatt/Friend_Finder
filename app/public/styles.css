@@ -75,6 +75,9 @@ button.button-primary:focus{
   background-color: transparent;
   border-color: #FDC20E; }
 
+.copyalign{
+  text-align: right;
+}
 
 /* border */
 #top,

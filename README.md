@@ -1,2 +1,35 @@
-# Friend_Finder
-Express and Node JS application to find a friend with your matching interest and nature
+# FriendFinder
+
+The goal was to create a Friend Finder app (essentially a dating app but for friends) using Node and Express servers. The user enters the page that leads to a survey. When the user submits the survey, they are matched with a "friend" that has the closest match to their personality.
+
+## Getting Started
+
+## Screen Shots
+
+![Screen shot](app/public/Friends_Finder_Home.png)
+Home Page
+
+![Screen shot 2](app/public/Friends_Survey.png)
+Survey
+
+## Technologies used
+- Node.js
+- body-parager NPM Package - https://www.npmjs.com/package/inquirer
+- express NPM Package - https://www.npmjs.com/package/express
+- path NPM Package - https://www.npmjs.com/package/path
+
+### Prerequisites
+
+```
+- Node.js - Download the latest version of Node https://nodejs.org/en/
+- Bootstrap - Add CDN link to HTML https://getbootstrap.com/docs/4.0/getting-started/introduction/
+```
+
+## Built With
+
+* Sublime Text - Text Editor
+* Materialize - Wireframe
+
+## Authors
+
+* **Shraddha Bhatt** - *HTML/JS/Node.js* 

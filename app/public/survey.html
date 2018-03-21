@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- google fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<body class="bg-light">
@@ -48,10 +48,15 @@
                                 <!-- PUT SURVEY QUESTIONS HERE -->
                             </fieldset>
                         </div>
-                        <button id="resultbutton" class="btn btn-primary btn-lg btn-block" type="submit">See your results!</button>
+                        <button id="resultbutton" class="btn btn-primary btn-lg btn-block" type="submit">See your match!</button>
                     </form>
                 </div>
             </div>
+            <footer class="mastfoot mb-4">
+            <div class="inner text-left">
+                <p><span class="api-link"><a href="/api/friends">| API Friends List | </a></span><span class="api-link"><a href="https://github.com/shraddhabhatt/Friend_Finder">Github Repo | </a></span><span class="api-link"><a href="/">Home | </a></span></p>
+            </div>
+            </footer>
         </div>
 
         <!-- Modal -->
@@ -66,7 +71,7 @@
                     </div>
                     <div class="modal-body">
                         <h2 id="matchFriendName"></h2>
-                        <img id="matchFriendImg" src="" alt="">
+                        <img height="300" width="200" id="matchFriendImg" src="" alt="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -75,11 +80,7 @@
             </div>
         </div>
 
-        <footer class="mastfoot mt-auto text-center">
-            <div class="inner">
-                <p>@CopyRights 2018 : Shraddha Bhatt</p>
-            </div>
-        </footer>
+        
 	    <!-- border divs-->
 			<div id="top">
 			</div>
@@ -144,7 +145,7 @@
                     let scores = [];
                     for (let i = 0; i < 10; i++) {
                         let currentVal = $(`input:radio[name='survey-${i}']:checked`).val();
-                        scores.push(currentVal);
+                        scores.push(parseInt(currentVal));
                         console.log("Val :: "+scores[i]);
                     }
                     $.ajax({
